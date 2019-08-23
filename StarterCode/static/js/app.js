@@ -6,7 +6,7 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-// / Step 1: Use`Object.entries` to console.log each UFO Sighting from data.js
+// / Step 1: Use`Object.entries` to console.log each UFO Sighting from data.js(to display all of the data in the table)
 function buildTable(ufoData){
 tbody.html("")
 ufoData.forEach((ufoReports) => {
@@ -21,23 +21,54 @@ ufoData.forEach((ufoReports) => {
 
 buildTable(tableData);
 
+// to assign the on click function to the button
+
 var buttton = d3.select("#filter-btn");
 buttton.on("click", function(){
  d3.event.preventdefault;
+
+//Create Variables for various Parameters
  var inputdate = d3.select("#datetime").property("value");
- var inputCountry = d3.select("#Country").property("value");
- var tableFilter = tableData
+ var inputcountry = d3.select("#country").property("value");
+ var inputstate = d3.select("#state").property("value");
+ var inputshape = d3.select("#shape").property("value");
+ var inputcity = d3.select("#city").property("value");
+ var tableFilter = tableData;
+
+ //create conditional in case we want to search on multiple criteria. 
 
  if (inputdate){
  tableFilter = tableFilter.filter(row=>row.datetime === inputdate);
  }
 
-if (inputCountry){
-    tableFilter = tableFilter.filter(row => row.country === inputCountry);
+ if (inputshape) {
+        tableFilter = tableFilter.filter(row => row.shape === inputshape);
+    }
+
+ if (inputcountry){
+    tableFilter = tableFilter.filter(row => row.country === inputcountry);
 }
- buildTable(tableFilter);
 
-})
+ if (inputState) {
+    tableFilter = tableFilter.filter(row => row.state === inputState);
+ }
+
+if (inputdate) {
+    tableFilter = tableFilter.filter(row => row.city === inputcity);
+    }
+
+});
+
+buildTable(tableFilter);
 
 
-//"Country"
+/* fields in the data table
+{ 
+    datetime: "1/1/2010",
+    city: "bonita",
+    state: "ca",
+    country: "us",
+    shape: "light",
+    durationMinutes: "13 minutes",
+    comments: "Three bright red lights witnessed floating stationary over San Diego New Years Day 2010"
+  },*/
