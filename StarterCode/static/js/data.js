@@ -333,6 +333,15 @@ var data = [{
   },
   {
     datetime: "1/2/2010",
+    city: "toronto",
+    state: "ca",
+    country: "canada",
+    shape: "triangle",
+    durationMinutes: "4min",
+    comments: "Triangle shaped object spotted over Sacramento River."
+  },
+  {
+    datetime: "1/2/2010",
     city: "middleburg",
     state: "fl",
     country: "us",

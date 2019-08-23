@@ -6,7 +6,8 @@ var tableData = data;
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-// / Step 1: Use`Object.entries` to console.log each UFO Sighting from data.js(to display all of the data in the table)
+// Use`Object.entries` to console.log each UFO Sighting from data.js(to display all of the data in the table)
+
 function buildTable(ufoData){
 tbody.html("")
 ufoData.forEach((ufoReports) => {
@@ -41,34 +42,24 @@ buttton.on("click", function(){
  tableFilter = tableFilter.filter(row=>row.datetime === inputdate);
  }
 
- if (inputshape) {
-        tableFilter = tableFilter.filter(row => row.shape === inputshape);
+ if (inputshape){
+ tableFilter = tableFilter.filter(row => row.shape === inputshape);
     }
 
  if (inputcountry){
-    tableFilter = tableFilter.filter(row => row.country === inputcountry);
+ tableFilter = tableFilter.filter(row => row.country === inputcountry);
 }
 
- if (inputState) {
-    tableFilter = tableFilter.filter(row => row.state === inputState);
+ if (inputstate){
+ tableFilter = tableFilter.filter(row => row.state === inputstate);
  }
 
-if (inputdate) {
-    tableFilter = tableFilter.filter(row => row.city === inputcity);
+ if (inputcity){
+ tableFilter = tableFilter.filter(row => row.city === inputcity);
     }
+
+    buildTable(tableFilter);
 
 });
 
-buildTable(tableFilter);
 
-
-/* fields in the data table
-{ 
-    datetime: "1/1/2010",
-    city: "bonita",
-    state: "ca",
-    country: "us",
-    shape: "light",
-    durationMinutes: "13 minutes",
-    comments: "Three bright red lights witnessed floating stationary over San Diego New Years Day 2010"
-  },*/
