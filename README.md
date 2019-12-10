@@ -17,5 +17,5 @@ Project Outline / Task:
 2.	Webpage created to show the appearance of various search groups 
 3. Create filters so that the sightings can be viewed as the need of the user. 
 
-Technologies Used:  HTML, CSS Javascript
+Technologies Used:  HTML, CSS Javascript.
 
